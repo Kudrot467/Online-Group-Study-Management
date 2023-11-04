@@ -68,7 +68,9 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        {/* <h2 className="text-[#CB6CE6] text-2xl font-bold text-center">Study <br />
+        <span className="text-[#98198E] text-xl">WITH FRIENDS</span>
+        </h2> */}
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
