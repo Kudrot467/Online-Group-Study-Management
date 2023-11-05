@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import { ToastContainer, toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 
 
 const Registration = () => {
@@ -18,7 +18,27 @@ const Registration = () => {
     const image_url=form.get("image_url");
     const email = form.get("email");
     const password = form.get("password");
-    console.log(userName, email, password);
+    //console.log(userName, email, password);
+    const user={
+        userName,
+        image_url,
+        email,
+        password
+    }
+    fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(user),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+              console.log(data)
+              if (data.insertedId) {
+                  Swal.fire("Thank You!", "Now we are friends!", "success");
+                 
+                  }
+          });
+
 
     if (password.length < 6) {
       setRegisterError("Password should be at least 6 character");
@@ -38,7 +58,7 @@ const Registration = () => {
       .then((result) => {
         console.log(result.user);
         setProfilePicture(image_url)
-       toast("user created successfully");
+        console.log(image_url);
       })
       .catch((error) => {
         console.log(error.message);
@@ -47,7 +67,7 @@ const Registration = () => {
   };
 
   return (
-    <div className="hero min-h-screen bg-[]">
+    <div className="hero min-h-screen bg-base-200">
       <div className="hero-content md:w-3/4 lg:w-full flex-col md:flex-row">
         <div>
             <img src="https://i.ibb.co/SsTJKDr/registration.png" alt="" />
@@ -141,7 +161,6 @@ const Registration = () => {
               {registerError}
             </p>
           )}
-           <ToastContainer></ToastContainer>
         </div>
       </div>
     </div>

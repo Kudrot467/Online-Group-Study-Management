@@ -10,6 +10,7 @@ import Home from './Components/Home/Home.jsx';
 import Login from './Components/Login/Login.jsx';
 import Registration from './Components/Registration/Registration.jsx';
 import AuthProvider from './Components/AuthProvider/AuthProvider.jsx';
+import CreateAssignment from './Components/CreateAssignment/CreateAssignment.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path:'/registration',
         element:<Registration></Registration>
+      },
+      {
+        path:'/createAssignment',
+        element:<CreateAssignment></CreateAssignment>
       }
     ]
   },
