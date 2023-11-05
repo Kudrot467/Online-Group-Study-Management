@@ -1,13 +1,11 @@
 import Swal from "sweetalert2";
 import { DatePicker } from "antd";
 import { useState } from "react";
-import moment from "moment/moment";
 const { RangePicker } = DatePicker;
 
 const CreateAssignment = () => {
   const [dates, setDates] = useState([]);
-  console.log(dates)
-
+  
   const handleFormSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -23,7 +21,7 @@ const CreateAssignment = () => {
       type,
       marks,
       short_description,
-      //dates
+      dates
     };
 
     fetch("http://localhost:5000/assignments", {
@@ -78,7 +76,7 @@ const CreateAssignment = () => {
             <br />
             <select
               name="type"
-              className="select select-primary  text-[#CB6CE6]  text-lg border-[#52BA5D] w-3/4 md:w-full lg:w-1/2"
+              className="select select-primary  text-[#CB6CE6]  text-lg border-[#CB6CE6] w-3/4 md:w-full lg:w-1/2"
             >
               <option
                 disabled

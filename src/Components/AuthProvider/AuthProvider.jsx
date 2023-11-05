@@ -3,6 +3,7 @@ import { createContext, useEffect, useState } from "react";
 
 import PropTypes from 'prop-types';
 import auth from "../../firebase/firebase.config";
+import axios from "axios";
  export const AuthContext=createContext(null);
 const AuthProvider = ({children}) => {
     const[user,setUser]=useState(null);
@@ -38,6 +39,14 @@ const AuthProvider = ({children}) => {
                 // console.log(currentUser);
                 setUser(currentUser);
                 setLoading(false);
+                if(currentUser)
+                {
+                    const loggedUser={email:currentUser.email};
+                    axios.post('http://localhost:5000/jwt',loggedUser, {withCredentials:true})
+                    .then(res=>{
+                        console.log(res.data);
+                    })
+                }
         })
         return ()=>{
             unsubscribe();

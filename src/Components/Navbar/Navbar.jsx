@@ -1,6 +1,13 @@
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import { useContext } from "react";
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+   
+  const signOut = () => {
+    logOut().then().catch();
+  };
   const navLinks = (
     <>
       <li className="mr-2">
@@ -35,6 +42,23 @@ const Navbar = () => {
           to="/registration"
         >
           Registration
+        </NavLink>{" "}
+      </li>
+      <li className="mr-2">
+        {" "}
+        <NavLink
+          className="text-lg"
+          style={({ isActive }) => {
+            return {
+              fontWeight: isActive ? "bold" : "",
+              background: isActive ? "white" : "#CB6CE6",
+              textDecoration: isActive ? "underline" : "",
+              color: isActive ? "#CB6CE6" : "white",
+            };
+          }}
+          to="/allAssignments"
+        >
+         Assignments
         </NavLink>{" "}
       </li>
     </>
@@ -79,22 +103,26 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        {" "}
-        <NavLink
-          className="px-4 py-2 rounded-xl text-lg"
-          style={({ isActive }) => {
-            return {
-              fontWeight: isActive ? "bold" : "",
-              background: isActive ? "white" : "#CB6CE6",
-              textDecoration: isActive ? "underline" : "",
-              color: isActive ? "#CB6CE6" : "white",
-            };
-          }}
-          to="/login"
-        >
-          Login
-        </NavLink>{" "}
-      </div>
+            {user? <div className="flex flex-col md:flex-row items-center">
+                <p>{user.displayName}</p>
+                <button 
+        onClick={signOut}
+        className="btn bg-[#CB6CE6] hover:bg-[#CB6CE6] text-white"
+        >Logout</button></div>:<NavLink
+        className="px-4 py-2 rounded-xl text-lg"
+        style={({ isActive }) => {
+          return {
+            fontWeight: isActive ? "bold" : "",
+            background: isActive ? "white" : "#CB6CE6",
+            textDecoration: isActive ? "underline" : "",
+            color: isActive ? "#CB6CE6" : "white",
+          };
+        }}
+        to="/login"
+      >
+        Login
+      </NavLink>}
+        </div>
     </div>
   );
 };
