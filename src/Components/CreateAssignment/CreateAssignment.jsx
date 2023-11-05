@@ -1,15 +1,17 @@
 import Swal from "sweetalert2";
 import { DatePicker } from "antd";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 const { RangePicker } = DatePicker;
 
 const CreateAssignment = () => {
   const [dates, setDates] = useState([]);
-  
+  const {user}=useContext(AuthContext);
   const handleFormSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const image_url = form.image_url.value;
+    const email=form.email.value;
     const title = form.title.value;
     const type = form.type.value;
     const marks = form.marks.value;
@@ -17,6 +19,7 @@ const CreateAssignment = () => {
 
     const assignment = {
       image_url,
+      email,
       title,
       type,
       marks,
@@ -56,6 +59,21 @@ const CreateAssignment = () => {
                 name="image_url"
                 className="input input-bordered border-[#CB6CE6] w-3/4 md:w-full lg:w-1/2"
                 required
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-[#CB6CE6] font-medium text-lg">
+                  Email
+                </span>
+              </label>
+              <input
+                type="email"
+                placeholder="email"
+                defaultValue={user?.email}
+                name="email"
+                className="input input-bordered border-[#CB6CE6] w-3/4 md:w-full lg:w-1/2"
+                disabled
               />
             </div>
             <div className="form-control">

@@ -100,6 +100,22 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">
           {/* links */}
           {navLinks}
+          {
+            user && <NavLink
+            className="px-4 py-2 rounded-xl text-lg"
+            style={({ isActive }) => {
+              return {
+                fontWeight: isActive ? "bold" : "",
+                background: isActive ? "white" : "#CB6CE6",
+                textDecoration: isActive ? "underline" : "",
+                color: isActive ? "#CB6CE6" : "white",
+              };
+            }}
+            to="/createAssignment"
+          >
+            Create Assignment
+          </NavLink>
+          }
         </ul>
       </div>
       <div className="navbar-end">

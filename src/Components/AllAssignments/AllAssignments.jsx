@@ -19,9 +19,11 @@ const AllAssignments = () => {
             </figure>
             <div className="card-body">
               <h2 className="card-title">{assignment.title}</h2>
+              <p className="text-lg">Difficulty:{assignment.type}</p>
               <p>{assignment.short_description}</p>
               <div className="card-actions justify-end">
-                <button className="btn btn-primary">Buy Now</button>
+                <button className="btn">View</button>
+                <button className="btn">Update</button>
               </div>
             </div>
           </div>
