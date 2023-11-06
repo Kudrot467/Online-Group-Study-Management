@@ -12,6 +12,10 @@ import Registration from './Components/Registration/Registration.jsx';
 import AuthProvider from './Components/AuthProvider/AuthProvider.jsx';
 import CreateAssignment from './Components/CreateAssignment/CreateAssignment.jsx';
 import AllAssignments from './Components/AllAssignments/AllAssignments.jsx';
+import MyAssignments from './Components/MyAssignments/MyAssignments.jsx';
+import SubmittedLinks from './Components/SubmittedLinks/SubmittedLinks.jsx';
+import AssignmentsDifficulty from './Components/AssignmentsDifficulty/AssignmentsDifficulty.jsx';
+import Difficulty from './Components/Difficulty/Difficulty.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,6 +34,11 @@ const router = createBrowserRouter([
         element:<Registration></Registration>
       },
       {
+        path:'/difficulty',
+        element:<Difficulty></Difficulty>,
+        loader:()=>fetch('http://localhost:5000/difficulties')
+      },
+      {
         path:'/createAssignment',
         element:<CreateAssignment></CreateAssignment>
       },
@@ -37,6 +46,19 @@ const router = createBrowserRouter([
         path:'/allAssignments',
         element:<AllAssignments></AllAssignments>,
         loader:()=>fetch("http://localhost:5000/assignments")
+      },
+      {
+        path:'/allAssignments/:type',
+        element:<AssignmentsDifficulty></AssignmentsDifficulty>,
+        loader:()=>fetch("http://localhost:5000/assignments")
+      },
+      {
+        path:'/myAssignments',
+        element:<MyAssignments></MyAssignments>
+      },
+      {
+        path:'/submittedLinks',
+        element:<SubmittedLinks></SubmittedLinks>
       }
     ]
   },

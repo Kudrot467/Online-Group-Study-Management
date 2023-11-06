@@ -3,8 +3,8 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useContext } from "react";
 
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext);
-   
+  const { user, logOut } = useContext(AuthContext);
+
   const signOut = () => {
     logOut().then().catch();
   };
@@ -58,7 +58,64 @@ const Navbar = () => {
           }}
           to="/allAssignments"
         >
-         Assignments
+          Assignments
+        </NavLink>{" "}
+      </li>
+    </>
+  );
+
+  const userNavlinks = (
+    <>
+      <li className="mr-2">
+        {" "}
+        <NavLink
+          className="px-4 py-2 rounded-xl text-lg"
+          style={({ isActive }) => {
+            return {
+              fontWeight: isActive ? "bold" : "",
+              background: isActive ? "white" : "#CB6CE6",
+              textDecoration: isActive ? "underline" : "",
+              color: isActive ? "#CB6CE6" : "white",
+            };
+          }}
+          to="/createAssignment"
+        >
+          Create Assignment
+        </NavLink>{" "}
+      </li>
+
+      <li className="mr-2">
+        {" "}
+        <NavLink
+          className="text-lg"
+          style={({ isActive }) => {
+            return {
+              fontWeight: isActive ? "bold" : "",
+              background: isActive ? "white" : "#CB6CE6",
+              textDecoration: isActive ? "underline" : "",
+              color: isActive ? "#CB6CE6" : "white",
+            };
+          }}
+          to="/myAssignments"
+        >
+          My Assignments
+        </NavLink>{" "}
+      </li>
+      <li className="mr-2">
+        {" "}
+        <NavLink
+          className="text-lg"
+          style={({ isActive }) => {
+            return {
+              fontWeight: isActive ? "bold" : "",
+              background: isActive ? "white" : "#CB6CE6",
+              textDecoration: isActive ? "underline" : "",
+              color: isActive ? "#CB6CE6" : "white",
+            };
+          }}
+          to="/submittedLinks"
+        >
+          Submission Links
         </NavLink>{" "}
       </li>
     </>
@@ -100,8 +157,22 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">
           {/* links */}
           {navLinks}
-          {
-            user && <NavLink
+          {user && userNavlinks}
+        </ul>
+      </div>
+      <div className="navbar-end">
+        {user ? (
+          <div className="flex flex-col md:flex-row items-center">
+            <p>{user.displayName}</p>
+            <button
+              onClick={signOut}
+              className="btn bg-[#CB6CE6] hover:bg-[#CB6CE6] text-white"
+            >
+              Logout
+            </button>
+          </div>
+        ) : (
+          <NavLink
             className="px-4 py-2 rounded-xl text-lg"
             style={({ isActive }) => {
               return {
@@ -111,34 +182,12 @@ const Navbar = () => {
                 color: isActive ? "#CB6CE6" : "white",
               };
             }}
-            to="/createAssignment"
+            to="/login"
           >
-            Create Assignment
+            Login
           </NavLink>
-          }
-        </ul>
+        )}
       </div>
-      <div className="navbar-end">
-            {user? <div className="flex flex-col md:flex-row items-center">
-                <p>{user.displayName}</p>
-                <button 
-        onClick={signOut}
-        className="btn bg-[#CB6CE6] hover:bg-[#CB6CE6] text-white"
-        >Logout</button></div>:<NavLink
-        className="px-4 py-2 rounded-xl text-lg"
-        style={({ isActive }) => {
-          return {
-            fontWeight: isActive ? "bold" : "",
-            background: isActive ? "white" : "#CB6CE6",
-            textDecoration: isActive ? "underline" : "",
-            color: isActive ? "#CB6CE6" : "white",
-          };
-        }}
-        to="/login"
-      >
-        Login
-      </NavLink>}
-        </div>
     </div>
   );
 };
