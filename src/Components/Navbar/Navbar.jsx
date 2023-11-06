@@ -147,6 +147,7 @@ const Navbar = () => {
           >
             {/* links */}
             {navLinks}
+            {user && userNavlinks}
           </ul>
         </div>
         {/* <h2 className="text-[#CB6CE6] text-2xl font-bold text-center">Study <br />

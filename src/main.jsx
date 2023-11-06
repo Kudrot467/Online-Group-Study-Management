@@ -18,6 +18,7 @@ import SubmittedLinks from './Components/SubmittedLinks/SubmittedLinks.jsx';
 import AssignmentsDifficulty from './Components/AssignmentsDifficulty/AssignmentsDifficulty.jsx';
 import AssignmentDetails from './Components/AssignmentDetails/AssignmentDetails.jsx';
 import Update from './Components/Update/Update.jsx';
+import SubmissionForm from './Components/SubmissionForm/SubmissionForm.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -48,7 +49,7 @@ const router = createBrowserRouter([
       {
         path:'/update/:id',
         element:<Update></Update>,
-        loader:({params})=>fetch(`http://localhost:5000/assignments/${params.id}`)
+        // loader:({params})=>fetch(`http://localhost:5000/assignments/${params.id}`)
       },
       {
         path:'/allAssignments',
@@ -59,6 +60,11 @@ const router = createBrowserRouter([
         path:'/allAssignments/:type',
         element:<AssignmentsDifficulty></AssignmentsDifficulty>,
         loader:()=>fetch("http://localhost:5000/assignments")
+      },
+      {
+        path:'/takeAssignments/:id',
+        element:<SubmissionForm></SubmissionForm>,
+        loader:({params})=>fetch(`http://localhost:5000/assignments/${params.id}`)
       },
       {
         path:'/myAssignments',

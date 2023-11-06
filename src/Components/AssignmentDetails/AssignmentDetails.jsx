@@ -7,7 +7,7 @@ const AssignmentDetails = () => {
     console.log(id);
     const detail = data.find((detail) => detail._id == id);
     console.log(detail)
-    const {title,image_url,type,marks,short_description}=detail;
+    const {_id,title,image_url,type,marks,short_description}=detail;
     // console.log(detail)
     return (
         <div className="max-w-7xl mx-auto">
@@ -22,7 +22,7 @@ const AssignmentDetails = () => {
                 {short_description} <br />
                {" "}
               </p>
-              <Link to={`/myAssignments`}>
+              <Link to={`/takeAssignments/${_id}`}>
                 <button className="btn bg-[#52BA5D] text-white hover:text-[#52BA5D]">
                   Take Assignment
                 </button>

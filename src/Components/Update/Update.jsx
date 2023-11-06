@@ -32,22 +32,22 @@ const Update = () =>{
         dates
       };
 
-      fetch(`http://localhost:5000/assignments/${assignments._id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(updatedAssignment)
-      })
-        .then((response) => response.json())
-        .then((data) => {
+    //   fetch(`http://localhost:5000/assignments/${assignments._id}`, {
+    //     method: "PUT",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify(updatedAssignment)
+    //   })
+    //     .then((response) => response.json())
+    //     .then((data) => {
 
-          if (data.modifiedCount>0) {
-            Swal.fire(
-              "Good job!",
-              "Product has Updated in the database!",
-              "success"
-            );
-          }
-        });
+    //       if (data.modifiedCount>0) {
+    //         Swal.fire(
+    //           "Good job!",
+    //           "Product has Updated in the database!",
+    //           "success"
+    //         );
+    //       }
+    //     });
 
     }
   
