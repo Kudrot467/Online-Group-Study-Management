@@ -8,7 +8,8 @@ const AssignmentsDifficulty = () => {
     (assignments) => assignments.type === type
   );
   return (
-    <div>
+   <div className="max-w-6xl mx-auto">
+     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
       {assignments.map((assignment) => (
         <div key={assignment._id}>
           <div key={assignment._id}>
@@ -36,7 +37,7 @@ const AssignmentsDifficulty = () => {
                   {assignment.short_description.length > 70 ? (
                     <p>
                       {assignment.short_description.slice(0, 70)}
-                      <Link to="/assignmentDetails">
+                      <Link to={`/assignmentDetails/${assignment._id}`}>
                         .....
                         <button className="text-xl underline text-[#CB6CE6]">
                           View Details
@@ -56,6 +57,7 @@ const AssignmentsDifficulty = () => {
         </div>
       ))}
     </div>
+   </div>
   );
 };
 

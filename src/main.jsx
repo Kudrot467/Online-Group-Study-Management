@@ -6,6 +6,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import App from './App.jsx';
 import Home from './Components/Home/Home.jsx';
 import Login from './Components/Login/Login.jsx';
 import Registration from './Components/Registration/Registration.jsx';
@@ -15,15 +16,17 @@ import AllAssignments from './Components/AllAssignments/AllAssignments.jsx';
 import MyAssignments from './Components/MyAssignments/MyAssignments.jsx';
 import SubmittedLinks from './Components/SubmittedLinks/SubmittedLinks.jsx';
 import AssignmentsDifficulty from './Components/AssignmentsDifficulty/AssignmentsDifficulty.jsx';
-import Difficulty from './Components/Difficulty/Difficulty.jsx';
+import AssignmentDetails from './Components/AssignmentDetails/AssignmentDetails.jsx';
+import Update from './Components/Update/Update.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home></Home>,
+    element: <App></App>,
     children:[
       {
         path:'/',
-        element:<Home></Home>
+        element:<Home></Home>,
+        loader:()=>fetch('http://localhost:5000/difficulties')
       },
       {
         path:'/login',
@@ -34,13 +37,18 @@ const router = createBrowserRouter([
         element:<Registration></Registration>
       },
       {
-        path:'/difficulty',
-        element:<Difficulty></Difficulty>,
-        loader:()=>fetch('http://localhost:5000/difficulties')
+        path:'/assignmentDetails/:id',
+        element:<AssignmentDetails></AssignmentDetails>,
+        loader:()=>fetch("http://localhost:5000/assignments")
       },
       {
         path:'/createAssignment',
         element:<CreateAssignment></CreateAssignment>
+      },
+      {
+        path:'/update/:id',
+        element:<Update></Update>,
+        loader:({params})=>fetch(`http://localhost:5000/assignments/${params.id}`)
       },
       {
         path:'/allAssignments',

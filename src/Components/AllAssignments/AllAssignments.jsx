@@ -1,10 +1,12 @@
 import { Link, useLoaderData } from "react-router-dom";
 
+
 const AllAssignments = () => {
   const allAssignments = useLoaderData();
   // console.log(allAssignments);
   return (
     <div className="max-w-6xl mx-auto">
+       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
         {allAssignments.map((assignment) => (
           <div key={assignment._id}>
@@ -21,7 +23,7 @@ const AllAssignments = () => {
                   {assignment.short_description.length > 70 ? (
                     <p>
                       {assignment.short_description.slice(0, 70)}
-                      <Link to="/assignmentDetails">
+                      <Link to={`/assignmentDetails/${assignment._id}`}>
                         .....<button className="text-xl underline text-[#CB6CE6]">View Details</button>
                       </Link>
                     </p>
@@ -30,7 +32,11 @@ const AllAssignments = () => {
                   )}
                 </p>
                 <div className="card-actions justify-end">
-                  <button className="btn">Update</button>
+                <Link to={`/update/${assignment._id}`}>
+                    <button className="btn text-[#52BA5D] hover:bg-[#CB6CE6] hover:text-white">
+                      Update
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

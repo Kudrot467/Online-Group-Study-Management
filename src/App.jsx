@@ -1,8 +1,13 @@
+import { Outlet } from 'react-router-dom'
 import './App.css'
+import Header from './Components/Header/Header'
+import Footer from './Components/Footer/Footer'
 function App() {
   return (
     <>
-      <h1>Online Group Study With Friends</h1>
+      <Header></Header>
+      <Outlet></Outlet>
+      <Footer></Footer>
     </>
   )
 }
