@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 const SubmissionForm = () => {
   const takenAssignments = useLoaderData();
   const {user}=useContext(AuthContext);
-  const { title } = takenAssignments;
+  const { title,marks } = takenAssignments;
 
   const handleSubmitAssignment=e=>{
     e.preventDefault();
@@ -15,6 +15,8 @@ const SubmissionForm = () => {
     const pdfLink=form.pdfLink.value;
     const quickNote=form.quickNote.value;
     const submitted={
+        title,
+        marks,
         email,
         pdfLink:pdfLink,
         quickNote:quickNote

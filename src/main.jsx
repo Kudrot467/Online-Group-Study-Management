@@ -19,6 +19,8 @@ import AssignmentsDifficulty from './Components/AssignmentsDifficulty/Assignment
 import AssignmentDetails from './Components/AssignmentDetails/AssignmentDetails.jsx';
 import Update from './Components/Update/Update.jsx';
 import SubmissionForm from './Components/SubmissionForm/SubmissionForm.jsx';
+import PrivateRoutes from './Components/PrivateRoutes/PrivateRoutes.jsx';
+import SubmittedAssignments from './Components/SubmittedAssignments/SubmittedAssignments.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -68,7 +70,12 @@ const router = createBrowserRouter([
       },
       {
         path:'/myAssignments',
-        element:<MyAssignments></MyAssignments>
+        element:<PrivateRoutes><MyAssignments></MyAssignments></PrivateRoutes>
+      },
+      {
+        path:'/submittedAssignments',
+        element:<SubmittedAssignments></SubmittedAssignments>,
+        loader:()=>fetch('http://localhost:5000/submittedAssignments')
       },
       {
         path:'/submittedLinks',

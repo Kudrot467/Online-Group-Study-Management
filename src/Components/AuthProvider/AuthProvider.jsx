@@ -41,19 +41,19 @@ const AuthProvider = ({children}) => {
                 const loggedUser={email:userEmail};
                 setUser(currentUser);
                 setLoading(false);
-                if(currentUser)
-                {
+                // if(currentUser)
+                // {
                     
-                    axios.post('http://localhost:5000/jwt',loggedUser, {withCredentials:true})
-                    .then(res=>{
-                        console.log(res.data);
-                    })
-                }else{
-                    axios.post('http://localhost:5000/logout',loggedUser,{withCredentials:true})
-                    .then(res=>{
-                        console.log(res.data)
-                    })
-                }
+                //     axios.post('http://localhost:5000/jwt',loggedUser, {withCredentials:true})
+                //     .then(res=>{
+                //         console.log(res.data);
+                //     })
+                // }else{
+                //     axios.post('http://localhost:5000/logout',loggedUser,{withCredentials:true})
+                //     .then(res=>{
+                //         console.log(res.data)
+                //     })
+                // }
         })
         return ()=>{
             unsubscribe();
