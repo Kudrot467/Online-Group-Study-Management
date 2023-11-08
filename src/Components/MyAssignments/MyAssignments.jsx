@@ -38,7 +38,7 @@ const MyAssignments = () => {
                   <p>{submittedAssignment?.obtainMarks.length>0 ? <p className="text-green-600 font-bold"> <span className="text-[#CB6CE6] text-xl"> Status:</span>Completed</p> : <p className="text-red-500"><span className="text-[#CB6CE6] text-xl"> Status:</span>Pending</p>}</p>
                   <p>Marks:{submittedAssignment?.marks}</p>
                   <p> Obtain Marks:{submittedAssignment?.obtainMarks.length===0 ? <p>not check yet by examinee</p>:<p>{submittedAssignment?.obtainMarks}</p> }</p>
-                 
+                 <p>{submittedAssignment?.examinee ? <p>{submittedAssignment?.examinee.slice(0,-10)} </p>:""}</p>
                 </div>
               </div>
               </div>

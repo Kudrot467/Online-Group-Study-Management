@@ -45,14 +45,10 @@ const SubmittedAssignments = () => {
                   
                   <p className="text-xl text-red-600 font-semibold">{userSubmission?.obtainMarks.length>0 ?<span>completed</span>:<span>pending</span>
                   }</p>
-                  <p>{userSubmission?.obtainMarks ? <p className="text-xl text-[#52BA5D]"><span className="text-xl text-[#CB6CE6] font-medium"> Obtain Marks:</span>
+                  <p className="text-xl text-[#CB6CE6] font-medium"> Obtain Marks:{userSubmission?.obtainMarks.length===0 ? <p className="text-xl text-[#52BA5D]">not check yet by examinee</p>:<p className="text-xl text-[#52BA5D]">{userSubmission?.obtainMarks}</p> }</p>
                     
-                    {userSubmission.obtainMarks}</p>:""}
-                    
-                    </p>
-                    <p className="text-xl text-[#CB6CE6] font-medium">Feedback:
-                    <span className="text-xl text-[#52BA5D]">{userSubmission?.feedback}</span>
-                  </p>
+                    <span className="text-xl text-[#52BA5D]">{userSubmission?.feedback ? <p className="text-xl text-[#CB6CE6] font-medium">Feedback: {userSubmission?.feedback}  </p>: ""}</span>
+                 
                  
 
                   <p className="text-xl text-[#52BA5D]">

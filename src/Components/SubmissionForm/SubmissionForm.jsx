@@ -10,7 +10,7 @@ const SubmissionForm = () => {
   const { title,marks,email } = takenAssignments;
   const ownerEmail=email;
   const obtainMarks='';
-  const status='pending';
+
   const feedback='';
 
   const handleSubmitAssignment=e=>{
@@ -24,7 +24,7 @@ const SubmissionForm = () => {
         ownerEmail,
         marks,
         obtainMarks,
-        status,
+
         feedback,
         email,
         pdfLink:pdfLink,

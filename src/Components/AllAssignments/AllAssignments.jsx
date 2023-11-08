@@ -41,7 +41,7 @@ const AllAssignments = () => {
               <figure>
                 <img className="w-full h-[250px]" src={assignment.image_url} alt="Shoes" />
               </figure>
-              <div className="card-body h-[250px]">
+              <div className="card-body h-full md:h-[250px] lg:h-[270px]">
                 <h2 className="card-title text-[#CB6CE6]">{assignment.title}</h2>
                 <p className="text-lg font-semibold">Difficulty: <span className="text-red-500">{assignment.type}</span> <br />
                 <span className="text-lg text-green-500 font-semibold">Marks: <span className="text-green-500">{assignment.marks}</span> </span>
@@ -58,7 +58,7 @@ const AllAssignments = () => {
                     <p>{assignment.short_description}</p>
                   )}
                 </p>
-                <div className="card-actions justify-end h-[200px]">
+                <div className="card-actions justify-end md:h-[200px]">
                   {
                     user?.email===assignment.email ? <div className="flex items-center">
                       <p className="text-[#52BA5D] mr-2">You can update or delete the Assignment</p>
