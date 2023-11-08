@@ -46,7 +46,7 @@ const AuthProvider = ({children}) => {
                     
                     axios.post('http://localhost:5000/jwt',loggedUser, {withCredentials:true})
                     .then(res=>{
-                        console.log(res.data);
+                        console.log("token",res.data);
                     })
                 }else{
                     axios.post('http://localhost:5000/logout',loggedUser,{withCredentials:true})
