@@ -41,16 +41,16 @@ const router = createBrowserRouter([
       },
       {
         path:'/assignmentDetails/:id',
-        element:<AssignmentDetails></AssignmentDetails>,
+        element:<PrivateRoutes><AssignmentDetails></AssignmentDetails></PrivateRoutes>,
         loader:()=>fetch("http://localhost:5000/assignments")
       },
       {
         path:'/createAssignment',
-        element:<CreateAssignment></CreateAssignment>
+        element:<PrivateRoutes><CreateAssignment></CreateAssignment></PrivateRoutes>
       },
       {
         path:'/update/:id',
-        element:<Update></Update>,
+        element:<PrivateRoutes><Update></Update></PrivateRoutes>,
         loader:({params})=>fetch(`http://localhost:5000/assignments/${params.id}`)
       },
       {
@@ -65,7 +65,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/takeAssignments/:id',
-        element:<SubmissionForm></SubmissionForm>,
+        element:<PrivateRoutes><SubmissionForm></SubmissionForm></PrivateRoutes>,
         loader:({params})=>fetch(`http://localhost:5000/assignments/${params.id}`)
       },
       {
@@ -74,13 +74,13 @@ const router = createBrowserRouter([
       },
       {
         path:'/submittedAssignments',
-        element:<SubmittedAssignments></SubmittedAssignments>,
+        element:<PrivateRoutes><SubmittedAssignments></SubmittedAssignments></PrivateRoutes>,
         loader:()=>fetch('http://localhost:5000/submittedAssignments')
       },
       {
         path:'/giveMarks/:id',
-        element:<GiveMarks></GiveMarks>,
-        loader:()=>fetch('http://localhost:5000/submittedAssignments')
+        element:<PrivateRoutes><GiveMarks></GiveMarks></PrivateRoutes>,
+        loader:({params})=>fetch(`http://localhost:5000/submittedAssignments/${params.id}`)
       },
     ]
   },

@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div>
-      <footer className="footer flex mx-auto items-center bg-base-200 text-base-content rounded">
+      <footer className="footer footer-center bg-base-200 text-base-content rounded">
         
       <img className="w-[250px] h-[250px]" src="https://i.ibb.co/z8rw6ht/Blue-Elegant-Concept-Foundation-Logo-removebg-preview.png" alt="" />
        <div className=" flex flex-col mx-auto items-center ">

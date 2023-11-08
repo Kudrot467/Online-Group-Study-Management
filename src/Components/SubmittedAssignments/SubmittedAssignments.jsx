@@ -29,7 +29,7 @@ const SubmittedAssignments = () => {
               Submitted By {userSubmission.email}
             </div>
             <div className="collapse-content bg-[#5ee96c] text-xl peer-checked:bg-[#CB6CE6] peer-checked:text-xl">
-              <p>hello</p>
+              <h1 className="text-white font-bold">Work-Details</h1>
               <div className="card lg:card-side w-full overflow-x-auto bg-base-100 shadow-xl">
                 <h2 className="card-title text-[#52BA5D] ml-1">
                   {userSubmission.title}
@@ -42,6 +42,19 @@ const SubmittedAssignments = () => {
                     </span>{" "}
                     {userSubmission.marks}
                   </p>
+                  
+                  <p className="text-xl text-red-600 font-semibold">{userSubmission?.obtainMarks.length>0 ?<span>completed</span>:<span>pending</span>
+                  }</p>
+                  <p>{userSubmission?.obtainMarks ? <p className="text-xl text-[#52BA5D]"><span className="text-xl text-[#CB6CE6] font-medium"> Obtain Marks:</span>
+                    
+                    {userSubmission.obtainMarks}</p>:""}
+                    
+                    </p>
+                    <p className="text-xl text-[#CB6CE6] font-medium">Feedback:
+                    <span className="text-xl text-[#52BA5D]">{userSubmission?.feedback}</span>
+                  </p>
+                 
+
                   <p className="text-xl text-[#52BA5D]">
                     {" "}
                     <span className="text-xl text-[#CB6CE6] font-medium">

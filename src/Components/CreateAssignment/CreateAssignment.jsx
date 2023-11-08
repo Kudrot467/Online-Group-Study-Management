@@ -94,6 +94,7 @@ const CreateAssignment = () => {
             <br />
             <select
               name="type"
+              required
               className="select select-primary  text-[#CB6CE6]  text-lg border-[#CB6CE6] w-3/4 md:w-full lg:w-1/2"
             >
               <option

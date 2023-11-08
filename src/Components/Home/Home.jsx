@@ -1,6 +1,7 @@
 import { Link, useLoaderData } from "react-router-dom";
 import Banner from "../Banner/Banner";
 import MeetingPlatform from "../MeetingPlatform/MeetingPlatform";
+import FAQ from "../FAQ/FAQ";
 
 
 const Home = () => {
@@ -33,6 +34,9 @@ const Home = () => {
        </div>
        <div className="max-w-6xl mx-auto">
        <MeetingPlatform></MeetingPlatform>
+       </div>
+       <div className="max-w-xl mx-auto my-2">
+        <FAQ></FAQ>
        </div>
       </div>
     );

@@ -2,11 +2,12 @@ import Swal from "sweetalert2";
 import { DatePicker } from "antd";
 import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import { useLoaderData } from "react-router-dom";
+import {  useLoaderData } from "react-router-dom";
 const { RangePicker } = DatePicker;
 const Update = () =>{
 
     const assignments=useLoaderData();
+
     console.log(assignments)
    // const url=`http://localhost:5000/assignments?email=kudrot@467.com`
     const [dates, setDates] = useState([]);
@@ -46,6 +47,7 @@ const Update = () =>{
               "Assignment has Updated !",
               "success"
             );
+            form.reset();
           }
         });
 
@@ -166,6 +168,7 @@ const Update = () =>{
                     />
                  
                 </div>
+                
                 <input
                   type="submit"
                   value="Update Assignment"

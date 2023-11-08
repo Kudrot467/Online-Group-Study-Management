@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaGoogle, FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
@@ -25,9 +26,10 @@ const Login = () => {
         console.log(result.user);
 
         navigate(location?.state ? location.state : "/");
-        toast("login successful", {
-          position: toast.POSITION.TOP_CENTER,
-        });
+        Swal.fire(
+          "Login Successful",
+          "success"
+       );
       })
       .catch((error) => {
         const errorMessage = error.message;

@@ -9,6 +9,9 @@ const SubmissionForm = () => {
   const {user}=useContext(AuthContext);
   const { title,marks,email } = takenAssignments;
   const ownerEmail=email;
+  const obtainMarks='';
+  const status='pending';
+  const feedback='';
 
   const handleSubmitAssignment=e=>{
     e.preventDefault();
@@ -20,6 +23,9 @@ const SubmissionForm = () => {
         title,
         ownerEmail,
         marks,
+        obtainMarks,
+        status,
+        feedback,
         email,
         pdfLink:pdfLink,
         quickNote:quickNote

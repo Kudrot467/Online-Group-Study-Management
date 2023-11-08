@@ -10,8 +10,6 @@ const AllAssignments = () => {
   const {user}=useContext(AuthContext);
   console.log(allAssignments);
 
-
-
  const handleDelete=id=>{
         fetch(`http://localhost:5000/assignments/${id}`,{
           method:'DELETE'
