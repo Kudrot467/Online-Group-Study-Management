@@ -164,7 +164,7 @@ const Navbar = () => {
       <div className="navbar-end">
         {user ? (
           <div className="flex flex-col md:flex-row items-center">
-            <p>{user.displayName}</p>
+            <p>{user?.displayName ? <p>{user?.displayName}</p>:<p>{user?.email}</p>}</p>
             <button
               onClick={signOut}
               className="btn bg-[#CB6CE6] hover:bg-[#CB6CE6] text-white"
