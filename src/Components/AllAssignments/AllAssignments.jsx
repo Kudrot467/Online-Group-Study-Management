@@ -11,7 +11,7 @@ const AllAssignments = () => {
   console.log(allAssignments);
 
  const handleDelete=id=>{
-        fetch(`http://localhost:5000/assignments/${id}`,{
+        fetch(`https://1001-ogsf-server.vercel.app/assignments/${id}`,{
           method:'DELETE'
         })
         .then(res=>res.json())

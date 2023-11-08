@@ -7,7 +7,7 @@ const MyAssignments = () => {
   const [submittedAssignments, setSubmittedAssignments] = useState([]);
   console.log(user)
 
-  const url = `http://localhost:5000/submittedAssignments?email=${user?.email}`;
+  const url = `https://1001-ogsf-server.vercel.app/submittedAssignments?email=${user?.email}`;
 
   useEffect(() => {
     fetch(url,{credentials:'include'})

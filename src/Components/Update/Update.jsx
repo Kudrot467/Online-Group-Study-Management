@@ -9,7 +9,7 @@ const Update = () =>{
     const assignments=useLoaderData();
 
     console.log(assignments)
-   // const url=`http://localhost:5000/assignments?email=kudrot@467.com`
+   // const url=`https://1001-ogsf-server.vercel.app/assignments?email=kudrot@467.com`
     const [dates, setDates] = useState([]);
     const {user}=useContext(AuthContext);
     console.log(user.email);
@@ -33,7 +33,7 @@ const Update = () =>{
         dates
       };
 
-      fetch(`http://localhost:5000/assignments/${assignments._id}`, {
+      fetch(`https://1001-ogsf-server.vercel.app/assignments/${assignments._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedAssignment)

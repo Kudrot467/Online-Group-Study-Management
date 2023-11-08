@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const MeetingPlatform = () => {
   const [platforms, setPlatforms] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/meetingPlatforms")
+    fetch("https://1001-ogsf-server.vercel.app/meetingPlatforms")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

@@ -22,7 +22,7 @@ const GiveMarks = () => {
       feedback,
     };
 
-    fetch(`http://localhost:5000/submittedAssignments/${data._id}`, {
+    fetch(`https://1001-ogsf-server.vercel.app/submittedAssignments/${data._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedSubmission),

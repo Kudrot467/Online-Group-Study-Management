@@ -31,7 +31,7 @@ const SubmissionForm = () => {
         quickNote:quickNote
     }
 
-    fetch('http://localhost:5000/submittedAssignments',{
+    fetch('https://1001-ogsf-server.vercel.app/submittedAssignments',{
         method:'POST',
         headers:{
             'content-type':'application/json'

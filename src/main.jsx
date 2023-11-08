@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<Home></Home>,
-        loader:()=>fetch('http://localhost:5000/difficulties')
+        loader:()=>fetch('https://1001-ogsf-server.vercel.app/difficulties')
       },
       {
         path:'/login',
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       {
         path:'/assignmentDetails/:id',
         element:<PrivateRoutes><AssignmentDetails></AssignmentDetails></PrivateRoutes>,
-        loader:()=>fetch("http://localhost:5000/assignments")
+        loader:()=>fetch("https://1001-ogsf-server.vercel.app/assignments")
       },
       {
         path:'/createAssignment',
@@ -51,22 +51,22 @@ const router = createBrowserRouter([
       {
         path:'/update/:id',
         element:<PrivateRoutes><Update></Update></PrivateRoutes>,
-        loader:({params})=>fetch(`http://localhost:5000/assignments/${params.id}`)
+        loader:({params})=>fetch(`https://1001-ogsf-server.vercel.app/assignments/${params.id}`)
       },
       {
         path:'/allAssignments',
         element:<AllAssignments></AllAssignments>,
-        loader:()=>fetch("http://localhost:5000/assignments")
+        loader:()=>fetch("https://1001-ogsf-server.vercel.app/assignments")
       },
       {
         path:'/allAssignments/:type',
         element:<AssignmentsDifficulty></AssignmentsDifficulty>,
-        loader:()=>fetch("http://localhost:5000/assignments")
+        loader:()=>fetch("https://1001-ogsf-server.vercel.app/assignments")
       },
       {
         path:'/takeAssignments/:id',
         element:<PrivateRoutes><SubmissionForm></SubmissionForm></PrivateRoutes>,
-        loader:({params})=>fetch(`http://localhost:5000/assignments/${params.id}`)
+        loader:({params})=>fetch(`https://1001-ogsf-server.vercel.app/assignments/${params.id}`)
       },
       {
         path:'/myAssignments',
@@ -75,12 +75,12 @@ const router = createBrowserRouter([
       {
         path:'/submittedAssignments',
         element:<PrivateRoutes><SubmittedAssignments></SubmittedAssignments></PrivateRoutes>,
-        loader:()=>fetch('http://localhost:5000/submittedAssignments')
+        loader:()=>fetch('https://1001-ogsf-server.vercel.app/submittedAssignments')
       },
       {
         path:'/giveMarks/:id',
         element:<PrivateRoutes><GiveMarks></GiveMarks></PrivateRoutes>,
-        loader:({params})=>fetch(`http://localhost:5000/submittedAssignments/${params.id}`)
+        loader:({params})=>fetch(`https://1001-ogsf-server.vercel.app/submittedAssignments/${params.id}`)
       },
     ]
   },
