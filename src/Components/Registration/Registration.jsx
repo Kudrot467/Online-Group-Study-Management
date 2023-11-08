@@ -13,7 +13,7 @@ const Registration = () => {
   const [showPassword,setShowPassWord]=useState(false)
   const handleRegister = (e) => {
     e.preventDefault();
-    const form = new FormData(e.currentTarget);
+    let form = new FormData(e.currentTarget);
     const userName = form.get("userName");
     const image_url=form.get("image_url");
     const email = form.get("email");
@@ -35,7 +35,7 @@ const Registration = () => {
               console.log(data)
               if (data.insertedId) {
                   Swal.fire("Thank You!", "Now we are friends!", "success");
-                 
+                  form=new FormData(e.currentTarget)
                   }
           });
 

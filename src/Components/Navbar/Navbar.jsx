@@ -113,9 +113,9 @@ const Navbar = () => {
               color: isActive ? "#CB6CE6" : "white",
             };
           }}
-          to="/submittedLinks"
+          to="/submittedAssignments"
         >
-          Submission Links
+          Submitted Assignments
         </NavLink>{" "}
       </li>
     </>

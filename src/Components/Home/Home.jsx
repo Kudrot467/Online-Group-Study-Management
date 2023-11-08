@@ -1,4 +1,6 @@
 import { Link, useLoaderData } from "react-router-dom";
+import Banner from "../Banner/Banner";
+import MeetingPlatform from "../MeetingPlatform/MeetingPlatform";
 
 
 const Home = () => {
@@ -6,7 +8,9 @@ const Home = () => {
 
 
     return (
-       <div className="max-w-6xl mx-auto bg-base-200 p-2 rounded-lg">
+      <div>
+        <Banner></Banner>
+         <div className="max-w-6xl mx-auto bg-base-200 p-2 rounded-lg my-2">
         <h1 className="text-2xl font-semibold text-[#CB6CE6]">Assignments based on Difficulty</h1>
          <div  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
        {
@@ -14,7 +18,6 @@ const Home = () => {
             <Link to={`/allAssignments/${difficulty.type}`}>
             <div 
                 className="card lg:card-side w-full overflow-x-auto bg-base-100 shadow-xl"
-                data-aos="fade-right"
               >
                 <figure className="h-[150px]">
                   <img className="w-full h-full md:h-auto" src={difficulty.pic} alt="Album" />
@@ -28,6 +31,10 @@ const Home = () => {
        }
         </div>
        </div>
+       <div className="max-w-6xl mx-auto">
+       <MeetingPlatform></MeetingPlatform>
+       </div>
+      </div>
     );
 };
 

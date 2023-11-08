@@ -5,8 +5,10 @@ import Swal from "sweetalert2";
 
 const SubmissionForm = () => {
   const takenAssignments = useLoaderData();
+  console.log(takenAssignments)
   const {user}=useContext(AuthContext);
-  const { title,marks } = takenAssignments;
+  const { title,marks,email } = takenAssignments;
+  const ownerEmail=email;
 
   const handleSubmitAssignment=e=>{
     e.preventDefault();
@@ -16,6 +18,7 @@ const SubmissionForm = () => {
     const quickNote=form.quickNote.value;
     const submitted={
         title,
+        ownerEmail,
         marks,
         email,
         pdfLink:pdfLink,
@@ -34,7 +37,7 @@ const SubmissionForm = () => {
         console.log(data)
         if (data.insertedId) {
             Swal.fire("Thank You!", "Submitted Successfully", "success");
-           
+           form.reset();
             }
     })
 

@@ -32,22 +32,22 @@ const Update = () =>{
         dates
       };
 
-    //   fetch(`http://localhost:5000/assignments/${assignments._id}`, {
-    //     method: "PUT",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify(updatedAssignment)
-    //   })
-    //     .then((response) => response.json())
-    //     .then((data) => {
+      fetch(`http://localhost:5000/assignments/${assignments._id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedAssignment)
+      })
+        .then((response) => response.json())
+        .then((data) => {
 
-    //       if (data.modifiedCount>0) {
-    //         Swal.fire(
-    //           "Good job!",
-    //           "Product has Updated in the database!",
-    //           "success"
-    //         );
-    //       }
-    //     });
+          if (data.modifiedCount>0) {
+            Swal.fire(
+              "Good job!",
+              "Assignment has Updated !",
+              "success"
+            );
+          }
+        });
 
     }
   
@@ -66,6 +66,7 @@ const Update = () =>{
                     type="text"
                     placeholder="Image url"
                     name="image_url"
+                    defaultValue={assignments?.image_url}
                     className="input input-bordered border-[#CB6CE6] w-3/4 md:w-full lg:w-1/2"
                     required
                   />
@@ -95,6 +96,7 @@ const Update = () =>{
                     type="text"
                     placeholder="Title"
                     name="title"
+                    defaultValue={assignments?.title}
                     className="input input-bordered border-[#CB6CE6] w-3/4 md:w-full lg:w-1/2"
                     required
                   />
@@ -148,6 +150,7 @@ const Update = () =>{
                     type="text"
                     placeholder="Short description"
                     name="short_description"
+                    defaultValue={assignments?.short_description}
                     className="input input-bordered border-[#CB6CE6] w-3/4 md:w-full lg:w-1/2"
                     required
                   />
