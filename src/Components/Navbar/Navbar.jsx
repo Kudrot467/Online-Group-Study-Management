@@ -1,9 +1,16 @@
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [dbUsers, setDbUsers] = useState([]);
+
+  useEffect(() => {
+    fetch(`https://1001-ogsf-server.vercel.app/users?email=${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => setDbUsers(data));
+  }, []);
 
   const signOut = () => {
     logOut().then().catch();
@@ -164,7 +171,37 @@ const Navbar = () => {
       <div className="navbar-end">
         {user ? (
           <div className="flex flex-col md:flex-row items-center">
-            <p>{user?.displayName ? <p>{user?.displayName}</p>:<p>{user?.email}</p>}</p>
+            <div className="flex flex-col">
+              {dbUsers.map((dbUser) => (
+                <div key={dbUser._id}>
+                  <div>
+                    <div className="avatar online">
+                      <div
+                        className="w-24 rounded-full tooltip"
+                        data-tip={
+                          dbUser.email == user?.email ? (
+                            <p>{dbUser.userName}</p>
+                          ) : (
+                            <p>{user?.email}</p>
+                          )
+                        }
+                      >
+                        <img
+                          className="w-24 rounded-full"
+                          src={user?.photoURL}
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                    {dbUser.email == user?.email ? (
+                      <p>{dbUser.userName}</p>
+                    ) : (
+                      <p>{user?.displayName}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
             <button
               onClick={signOut}
               className="btn bg-[#CB6CE6] hover:bg-[#CB6CE6] text-white"

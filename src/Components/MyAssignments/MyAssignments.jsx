@@ -24,7 +24,7 @@ const MyAssignments = () => {
         {submittedAssignments.map((submittedAssignment) => (
           <div key={submittedAssignment._id}>
             <div className="collapse bg-base-200 my-2">
-            <Link to="/"><button  className="btn text-white bg-[#5ee96c] ">Home</button></Link>
+            <Link to="/"><button  className="btn text-white w-full bg-[#5ee96c] ">Home</button></Link>
               <input type="checkbox" className="peer" />
               <div className="collapse-title bg-[#52BA5D] text-xl peer-checked:bg-[#52BA5D] peer-checked:text-xl text-white font-semibold">
                Submitted by user({user?.email})
