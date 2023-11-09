@@ -10,7 +10,7 @@ const MyAssignments = () => {
   const url = `https://1001-ogsf-server.vercel.app/submittedAssignments?email=${user?.email}`;
 
   useEffect(() => {
-    fetch(url,{credentials:'include'})
+    fetch(url)
       .then((res) => res.json())
       .then((data) => {
         setSubmittedAssignments(data);

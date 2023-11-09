@@ -15,11 +15,7 @@ const SubmittedAssignments = () => {
       {usersSubmission.map((userSubmission) => (
         <div key={userSubmission._id}>
           <div className="collapse bg-base-200 my-2">
-            <Link
-              to={
-               `/giveMarks/${userSubmission._id}`
-              }
-            >
+            <Link to={`/giveMarks/${userSubmission._id}`}>
               <button className="btn  w-full bg-[#5ee96c] text-white font-medium hover:text-[#CB6CE6] ">
                 Give Mark
               </button>
@@ -42,14 +38,37 @@ const SubmittedAssignments = () => {
                     </span>{" "}
                     {userSubmission.marks}
                   </p>
-                  
-                  <p className="text-xl text-red-600 font-semibold">{userSubmission?.obtainMarks.length>0 ?<span>completed</span>:<span>pending</span>
-                  }</p>
-                  <p className="text-xl text-[#CB6CE6] font-medium"> Obtain Marks:{userSubmission?.obtainMarks.length===0 ? <p className="text-xl text-[#52BA5D]">not check yet by examinee</p>:<p className="text-xl text-[#52BA5D]">{userSubmission?.obtainMarks}</p> }</p>
-                    
-                    <span className="text-xl text-[#52BA5D]">{userSubmission?.feedback ? <p className="text-xl text-[#CB6CE6] font-medium">Feedback: {userSubmission?.feedback}  </p>: ""}</span>
-                 
-                 
+
+                  <p className="text-xl text-red-600 font-semibold">
+                    {userSubmission?.obtainMarks.length > 0 ? (
+                      <span>completed</span>
+                    ) : (
+                      <span>pending</span>
+                    )}
+                  </p>
+                  <p className="text-xl text-[#CB6CE6] font-medium">
+                    {" "}
+                    Obtain Marks:
+                    {userSubmission?.obtainMarks.length === 0 ? (
+                      <p className="text-xl text-[#52BA5D]">
+                        not check yet by examinee
+                      </p>
+                    ) : (
+                      <p className="text-xl text-[#52BA5D]">
+                        {userSubmission?.obtainMarks}
+                      </p>
+                    )}
+                  </p>
+
+                  <span className="text-xl text-[#52BA5D]">
+                    {userSubmission?.feedback ? (
+                      <p className="text-xl text-[#CB6CE6] font-medium">
+                        Feedback: {userSubmission?.feedback}{" "}
+                      </p>
+                    ) : (
+                      ""
+                    )}
+                  </span>
 
                   <p className="text-xl text-[#52BA5D]">
                     {" "}

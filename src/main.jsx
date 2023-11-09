@@ -21,10 +21,12 @@ import SubmissionForm from './Components/SubmissionForm/SubmissionForm.jsx';
 import PrivateRoutes from './Components/PrivateRoutes/PrivateRoutes.jsx';
 import SubmittedAssignments from './Components/SubmittedAssignments/SubmittedAssignments.jsx';
 import GiveMarks from './Components/GiveMarks/GiveMarks.jsx';
+import ErrorPage from './Components/ErrorPage/ErrorPage.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement:<ErrorPage></ErrorPage>,
     children:[
       {
         path:'/',
