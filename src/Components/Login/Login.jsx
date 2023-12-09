@@ -41,7 +41,7 @@ const Login = () => {
     <div className="hero min-h-screen bg-[#CB6CE6]">
       <div className="hero-content md:w-3/4 lg:w-1/2 flex-col md:flex-row">
       <div className="">
-            <img className="w-full rounded-t-lg" src="https://i.ibb.co/pK69vpw/logo-Title.png" alt="" />
+            <img className="w-full rounded-lg" src="https://i.ibb.co/pK69vpw/logo-Title.png" alt="" />
           <img
             className="w-full"
             src="https://i.ibb.co/ZK6xP04/Blue-and-White-Illustrated-Login-Page-Mobile-Prototype.png"
