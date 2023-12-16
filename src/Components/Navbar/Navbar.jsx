@@ -1,16 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  const [dbUsers, setDbUsers] = useState([]);
-
-  useEffect(() => {
-    fetch('https://1001-ogsf-server.vercel.app/users')
-      .then((res) => res.json())
-      .then((data) => setDbUsers(data));
-  }, []);
 
   const signOut = () => {
     logOut().then().catch();
@@ -169,17 +162,8 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        {user ? (
+        { user  ? (
           <div>
-           <div>
-           {
-            dbUsers.map(dbUser=><div key={dbUser._id}>
-                {
-                  user?.email===dbUser?.email ? <p>{dbUser?.userName}</p>:<p>{user?.displayName==null ? <p>{user?.email}</p>:""}</p>
-                }
-            </div>)
-           }
-           </div>
            <img className="w-20 rounded-full" src={user?.photoURL} alt="" />
             <button
               onClick={signOut}
